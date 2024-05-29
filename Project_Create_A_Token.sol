@@ -12,14 +12,14 @@ contract MyToken {
     mapping(address => uint) public balances;
 
     // Mint function
-    function mint(address receiver, uint amount) public {
+    function mint(address receiver, uint amount) public {          // accepts two parameters that are 'address' & 'amount' to be added to respective account/address.
         totalSupply = totalSupply + amount;
         balances[receiver] = balances[receiver] + amount;
     }
 
     // Burn function
-    function burn(address sender, uint amount) public {
-        require(balances[sender] >= amount, "Insufficient balance to burn");
+    function burn(address sender, uint amount) public {            // accepts two parameters that are 'address' & 'amount' to burn from respective account/address.
+        require(balances[sender] >= amount, "Insufficient balance to burn");            // this require condition checks if sender has enough money to share.
         
         totalSupply = totalSupply + amount;
         balances[sender] = balances[sender] - amount;
